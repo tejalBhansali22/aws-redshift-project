@@ -23,7 +23,7 @@
       "Choices": [
         {
           "Next": "Wait",
-          "Condition": "{% ($Crawler.State) = (\"RUNNING\") %}"
+          "Condition": "{% $states.input.Crawler.State = \"RUNNING\" %}"
         }
       ],
       "Default": "Glue StartJobRun"
@@ -54,7 +54,7 @@
       "Choices": [
         {
           "Next": "Success_Notification",
-          "Condition": "{% ($JobRunState) = (\"SUCCEEDED\") %}"
+          "Condition": "{% ($states.input.JobRunState) = (\"SUCCEEDED\") %}"
         }
       ],
       "Default": "Failed_Notification"
